@@ -52,13 +52,13 @@ sudo hostnamectl set-hostname pibrain
 ## ** Installing & Configuring Monitoring & Automation**
 
 ### **Step 1: Install and Configure Prometheus**
-Follow [docs/prometheus.md](docs/monitoring/prometheus_setup.md) to set up Prometheus on the server.
+Follow [prometheus_setup.md](https://github.com/gorman-ap/rpi-fleet-management/blob/main/docs/monitoring/prometheus_setup.md) to set up Prometheus on the server.
 
 ### **Step 2: Install and Configure Grafana**
-Follow [docs/grafana.md](docs/monitoring/grafana_setup.md) to install Grafana and configure dashboards.
+Follow [docs/grafana_setup.md](https://github.com/gorman-ap/rpi-fleet-management/blob/main/docs/monitoring/grafana_setup.md) to install Grafana and configure dashboards.
 
 ### **Step 3: Set Up Ansible for Automation**
-Follow [docs/ansible_setup.md](docs/monitoring/ansible_setup.md) to configure Ansible for managing Raspberry Pi updates.
+Follow [docs/ansible_setup.md](https://github.com/gorman-ap/rpi-fleet-management/blob/main/docs/monitoring/ansible_setup.md) to configure Ansible for managing Raspberry Pi updates.
 
 ---
 
