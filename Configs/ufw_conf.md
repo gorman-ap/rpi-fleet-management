@@ -26,6 +26,17 @@ This configuration is designed to secure the Raspberry Pi devices while allowing
 
 ## UFW Rules Configuration
 
+UFW rules are stored persistently in:
+- **IPv4 rules**: `/etc/ufw/user.rules`
+- **IPv6 rules**: `/etc/ufw/user6.rules`
+
+These files contain all active firewall rules and are modified when you run `ufw allow`, `ufw deny`, or `ufw delete` commands.
+
+To manually view the saved rules:
+```bash
+sudo cat /etc/ufw/user.rules
+```
+
 To apply these firewall rules, run the following commands on each Raspberry Pi and the monitoring server:
 
 ```bash
@@ -59,7 +70,7 @@ sudo ufw status verbose
 
 ---
 
-##  Firewall Configuration Complete
+## ✅ Firewall Configuration Complete
 UFW is now set up to secure your devices while allowing essential monitoring and management services. To adjust firewall rules, use:
 
 ```bash
