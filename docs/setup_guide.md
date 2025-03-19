@@ -7,55 +7,75 @@ Before setting up monitoring and automation, ensure you have:
 - Prometheus, Grafana, and Ansible installed on the **Ubuntu Server** (control machine)
 - Node Exporter installed on each **Raspberry Pi** (Pi 3 to Pi 5 models)
 
-## Installation Steps
-1. **Set Up Ansible for Automated Updates**
-   - Follow [ansible_setup.md](ansible_setup.md) to configure Ansible for managing updates across Raspberry Pi devices.
+---
 
-2. **Install and Configure Prometheus**
-   - Follow [prometheus.md](prometheus.md) for setting up Prometheus as the time-series database to collect monitoring data.
+## ** Installing PiSignage OS on Raspberry Pi**
 
-3. **Install and Configure Node Exporter**
-   - Follow [node_exporter.md](node_exporter.md) to install and configure Node Exporter on each Raspberry Pi.
+### **Step 1: Download PiSignage OS**
+Download the latest version of PiSignage OS from the official [GitHub repository](https://github.com/colloqi/piSignage).
 
-4. **Set Up Grafana for Visualization**
-   - Follow [grafana.md](grafana.md) to install Grafana, connect it to Prometheus, and import dashboards.
+### **Step 2: Flash the OS to an SD Card**
+Use **Raspberry Pi Imager** or **Balena Etcher** to flash the `.img` file onto a microSD card.
 
-5. **Configure Alerting for Issues**
-   - Follow [alerting.md](alerting.md) to configure alerts for device failures, high resource usage, or other anomalies.
+1. Insert your microSD card into your computer.
+2. Open **Raspberry Pi Imager** and select "Custom Image."
+3. Choose the downloaded PiSignage OS `.img` file.
+4. Select your microSD card and click "Write."
 
-## Network Considerations
-- All devices communicate using **hostnames**, not static IP addresses.
-- Ensure all Raspberry Pi devices are **on the same network** as the control machine running Ubuntu Server.
-- Open necessary ports for communication:
-  - **9100** (Node Exporter metrics)
-  - **9090** (Prometheus web UI)
-  - **3000** (Grafana web UI)
+### **Step 3: Boot Up the Raspberry Pi**
+1. Insert the microSD card into the Raspberry Pi.
+2. Power on the device and wait for the OS to initialize.
+3. Connect the Raspberry Pi to the network via **Ethernet** or **Wi-Fi**.
 
-## Testing the Setup
-Once all components are installed:
-1. **Verify Node Exporter is running on each Pi**:
-   ```bash
-   curl http://<pi-hostname>:9100/metrics
-   ```
-   - You should see system metrics output.
+### **Step 4: Update the System**
+After the first boot, update the system packages:
+```bash
+sudo apt update && sudo apt upgrade -y
+```
 
-2. **Check Prometheus Targets**:
-   - Open Prometheus at: `http://<monitoring-server-hostname>:9090/targets`
-   - Ensure all Raspberry Pi devices are listed and marked as **UP**.
+---
+### **Step 5: Hostname Assignment via PiSignage Portal**
+Hostnames for each Raspberry Pi are automatically set through the **PiSignage Portal** when the device is registered. Ensure that all devices are properly added and assigned hostnames in the PiSignage management interface.
 
-3. **Confirm Grafana Dashboards**:
-   - Open Grafana at: `http://<monitoring-server-hostname>:3000`
-   - Load a dashboard and check if data is flowing in.
+## ** Ensure Hostname-Based Communication**
+All devices communicate using **hostnames**, with no manual IP assignments. Ensure your network's DNS resolves hostnames correctly for seamless communication between devices
+---
 
-## Security & Hardening
+## ** Installing & Configuring Monitoring & Automation**
+
+### **Step 1: Install and Configure Node Exporter**
+Follow [docs/node_exporter.md](docs/node_exporter.md) to install and configure Node Exporter on each Raspberry Pi.
+
+### **Step 2: Verify Node Exporter is Running on Each Pi**
+```bash
+curl http://<pi-hostname>:9100/metrics
+```
+- You should see system metrics output.
+
+### **Step 1: Set Up Ansible for Automated Updates**
+Follow [ansible_setup.md](ansible_setup.md) to configure Ansible for managing updates across Raspberry Pi devices.
+
+
+
+
+---
+
+## ** Security & Hardening**
 To protect the Raspberry Pi devices and the control machine, implement firewall rules and intrusion prevention measures.
 
-### Dedicated Sudo User for Services
-A dedicated hidden user (`pi-admin`) is created to securely run all monitoring and automation services without exposing administrative access to default accounts.
-- **Purpose:** Runs Prometheus, Node Exporter, Grafana, and automation tasks.
-- **Permissions:** Full `sudo` access, but not used for regular logins.
+### **Dedicated Sudo User for Services**
+A dedicated hidden user (`pi-admin`) is created to securely run all monitoring and automation services. For detailed setup instructions, see [docs/security/hidden_sudo_user.md](docs/security/hidden_sudo_user.md).
 
+### **Firewall & Intrusion Prevention**
 - **UFW (Uncomplicated Firewall)** is used to restrict access to essential services.
 - **Fail2Ban** helps prevent brute-force attacks on SSH and other critical services.
 
 For detailed security configuration, refer to the [security folder](https://github.com/gorman-ap/rpi-fleet-management/tree/main/docs/security).
+
+---
+
+
+
+---
+
+This guide ensures that your **Raspberry Pi fleet is properly configured, updated, monitored, and secured.** 🚀
