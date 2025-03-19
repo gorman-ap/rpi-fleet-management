@@ -2,7 +2,7 @@
 
 ## Prerequisites
 Before setting up monitoring and automation, ensure you have:
-- A fleet of Raspberry Pi devices running **PiSignage OS** (custom OS hosted on GitHub)
+- A fleet of Raspberry Pi devices running [PiSignage OS](https://github.com/colloqi/piSignage)
 - A control machine running **Ubuntu Server**, responsible for monitoring the Raspberry Pi devices and managing automation via Ansible
 - Prometheus, Grafana, and Ansible installed on the **Ubuntu Server** (control machine)
 - Node Exporter installed on each **Raspberry Pi** (Pi 3 to Pi 5 models)
