@@ -50,6 +50,11 @@ Once all components are installed:
 ## Security & Hardening
 To protect the Raspberry Pi devices and the control machine, implement firewall rules and intrusion prevention measures.
 
+### Dedicated Sudo User for Services
+A dedicated hidden user (`pi-admin`) is created to securely run all monitoring and automation services without exposing administrative access to default accounts.
+- **Purpose:** Runs Prometheus, Node Exporter, Grafana, and automation tasks.
+- **Permissions:** Full `sudo` access, but not used for regular logins.
+
 - **UFW (Uncomplicated Firewall)** is used to restrict access to essential services.
 - **Fail2Ban** helps prevent brute-force attacks on SSH and other critical services.
 
