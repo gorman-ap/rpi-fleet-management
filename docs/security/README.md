@@ -6,7 +6,7 @@ This section contains security configurations and best practices for protecting 
 ##  Table of Contents
 - **[Hidden Sudo User](hidden_sudo_user.md)** → Creating a non-root administrative user for services.
 - **[UFW Firewall Rules](ufw_rules.md)** → Configuring Uncomplicated Firewall (UFW) to restrict access.
-- **[Fail2Ban Setup](fail2ban.md)** → Protecting against brute-force attacks on SSH.
+- **[Fail2Ban Setup](fail2ban_setup.md)** → Protecting against brute-force attacks on SSH.
 
 ##  Security Best Practices
 - **Disable root login** to prevent unauthorized access.
