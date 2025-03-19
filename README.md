@@ -30,13 +30,7 @@ cd raspberry-pi-fleet
 See the **docs/setup_guide.md** for detailed setup instructions.
 
 ### Running the Monitoring Stack
-```bash
-# Start Prometheus
-prometheus --config.file=configs/prometheus.yml
-
-# Start Node Exporter (on each Pi)
-node_exporter
-```
+For detailed instructions on monitoring setup, see **[docs/monitoring.md](docs/monitoring.md)**.
 
 ### Automate Updates
 Updates are managed using **Ansible** to ensure consistency across all Raspberry Pi devices.
