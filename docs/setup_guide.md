@@ -54,9 +54,8 @@ To protect the Raspberry Pi devices and the control machine, implement firewall 
 A dedicated hidden user (`pi-admin`) is created to securely run all monitoring and automation services without exposing administrative access to default accounts.
 - **Purpose:** Runs Prometheus, Node Exporter, Grafana, and automation tasks.
 - **Permissions:** Full `sudo` access, but not used for regular logins.
-- Refer to [hidden sudo user](hidden_sudo_user.md)
 
 - **UFW (Uncomplicated Firewall)** is used to restrict access to essential services.
 - **Fail2Ban** helps prevent brute-force attacks on SSH and other critical services.
 
-For detailed security configuration, refer to [security.md](security).
+For detailed security configuration, refer to the [security folder](https://github.com/gorman-ap/rpi-fleet-management/tree/main/docs/security).
