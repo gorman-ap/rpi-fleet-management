@@ -3,8 +3,8 @@ Description=Prometheus Node Exporter
 After=network.target
 
 [Service]
-User=[username]
-Group=[group]
+User=pi-admin
+Group=pi-admin
 ExecStart=/usr/local/bin/node_exporter
 Restart=always
 
