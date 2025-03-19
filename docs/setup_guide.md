@@ -1,15 +1,17 @@
-# Raspberry Pi Fleet - Setup Guide
+# Raspberry Pi Setup
 
 ## Prerequisites
-Before setting up monitoring and automation, ensure you have:
-- A fleet of Raspberry Pi devices running [PiSignage OS](https://github.com/colloqi/piSignage)
-- A control machine running **Ubuntu Server**, responsible for monitoring the Raspberry Pi devices and managing automation via Ansible
-- Prometheus, Grafana, and Ansible installed on the **Ubuntu Server** (control machine)
-- Node Exporter installed on each **Raspberry Pi** (Pi 3 to Pi 5 models)
+Before starting the setup, ensure you have the following hardware:
+- A **Raspberry Pi** (Pi 3, Pi 4, or Pi 5)
+- A **microSD card** (at least 8GB, recommended 16GB+)
+- A **microSD card reader**
+- A **power supply** compatible with your Raspberry Pi model
+- A **keyboard and monitor** (optional, for initial setup)
+- **Ethernet cable or Wi-Fi connection** for networking
 
 ---
 
-## ** Installing PiSignage OS on Raspberry Pi**
+## **1️⃣ Installing PiSignage OS on Raspberry Pi**
 
 ### **Step 1: Download PiSignage OS**
 Download the latest version of PiSignage OS from the official [GitHub repository](https://github.com/colloqi/piSignage).
@@ -34,14 +36,18 @@ sudo apt update && sudo apt upgrade -y
 ```
 
 ---
-### **Step 5: Hostname Assignment via PiSignage Portal**
+
+## **2️⃣ Network & Hostname Setup**
+All devices communicate using **hostnames**, with no manual IP assignments. Ensure your network's DNS resolves hostnames correctly for seamless communication between devices.
+
+### **Step 1: Hostname Assignment via PiSignage Portal**
+Hostnames for each Raspberry Pi are automatically set through the **PiSignage Portal** when the device is registered. Ensure that all devices are properly added and assigned hostnames in the PiSignage management interface.
 Hostnames for each Raspberry Pi are automatically set through the **PiSignage Portal** when the device is registered. Ensure that all devices are properly added and assigned hostnames in the PiSignage management interface.
 
-## ** Ensure Hostname-Based Communication**
-All devices communicate using **hostnames**, with no manual IP assignments. Ensure your network's DNS resolves hostnames correctly for seamless communication between devices
+
 ---
 
-## ** Installing & Configuring Monitoring & Automation**
+## **3️⃣ Installing & Configuring Monitoring & Automation**
 
 ### **Step 1: Install and Configure Node Exporter**
 Follow [docs/node_exporter.md](docs/node_exporter.md) to install and configure Node Exporter on each Raspberry Pi.
@@ -60,7 +66,7 @@ Follow [ansible_setup.md](ansible_setup.md) to configure Ansible for managing up
 
 ---
 
-## ** Security & Hardening**
+## **4️⃣ Security & Hardening**
 To protect the Raspberry Pi devices and the control machine, implement firewall rules and intrusion prevention measures.
 
 ### **Dedicated Sudo User for Services**
@@ -71,9 +77,6 @@ A dedicated hidden user (`pi-admin`) is created to securely run all monitoring a
 - **Fail2Ban** helps prevent brute-force attacks on SSH and other critical services.
 
 For detailed security configuration, refer to the [security folder](https://github.com/gorman-ap/rpi-fleet-management/tree/main/docs/security).
-
----
-
 
 
 ---
