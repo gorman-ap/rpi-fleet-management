@@ -1,9 +1,9 @@
 # Raspberry Pi Fleet Management
 
 ## Project Overview
-This repository tracks the **automation, monitoring, and alerting** of Raspberry Pi devices across the company. The goal is to ensure:
+This repository tracks the **automation, monitoring, and alerting** of Raspberry Pi devices across the company running [PiSignage OS](https://github.com/colloqi/piSignage) that display production data for workers on the factory floor. The goal is to ensure:
 
-- **Automated updates** for OS and software
+- **Automated updates** for software
 - **Centralized monitoring** using Prometheus & Grafana
 - **Log collection and alerting** for failures or anomalies
 
@@ -22,28 +22,18 @@ This repository tracks the **automation, monitoring, and alerting** of Raspberry
 ## Getting Started
 ### Clone the Repository
 ```bash
-git clone https://github.com/yourusername/raspberry-pi-fleet.git
+git clone https://github.com/gorman-ap/raspberry-pi-fleet.git
 cd raspberry-pi-fleet
 ```
 
 ### Setup & Installation
-See the **docs/setup_guide.md** for detailed setup instructions.
+See [docs/README.md](https://github.com/gorman-ap/rpi-fleet-management/blob/main/docs/README.md) for detailed setup instructions.
 
-### Running the Monitoring Stack
-For detailed instructions on monitoring setup, see **[docs/monitoring.md](docs/monitoring.md)**.
-
-### Automate Updates
-Updates are managed using **Ansible** to ensure consistency across all Raspberry Pi devices.
-
-See **docs/ansible_setup.md** for installation and usage instructions.
-
-### Set Up Alerts
-See **docs/alerting.md** for alerting configuration.
 
 ## How to Contribute
 - Submit **Issues** for bugs, feature requests, or improvements.
 - Use **Pull Requests (PRs)** to propose changes to scripts or configurations.
-- See the **docs/setup_guide.md** for setup instructions.
+- See the **docs/README.md** for setup instructions.
 
 ## Changelog
 See [CHANGELOG.md](CHANGELOG.md) for project updates.
