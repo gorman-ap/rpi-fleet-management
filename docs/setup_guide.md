@@ -59,8 +59,3 @@ A dedicated hidden user (`pi-admin`) is created to securely run all monitoring a
 - **Fail2Ban** helps prevent brute-force attacks on SSH and other critical services.
 
 For detailed security configuration, refer to [security.md](security.md).
-
-## Next Steps
-- Ensure monitoring is active and logs are being collected.
-- Fine-tune Prometheus scrape intervals and alerting thresholds.
-- Automate additional maintenance tasks using Ansible.
