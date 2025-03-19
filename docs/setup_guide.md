@@ -58,4 +58,4 @@ A dedicated hidden user (`pi-admin`) is created to securely run all monitoring a
 - **UFW (Uncomplicated Firewall)** is used to restrict access to essential services.
 - **Fail2Ban** helps prevent brute-force attacks on SSH and other critical services.
 
-For detailed security configuration, refer to [security.md](rpi-fleet-management/docs/security).
+For detailed security configuration, refer to [security.md](/security).
