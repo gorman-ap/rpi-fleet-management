@@ -11,7 +11,7 @@ Before starting the setup, ensure you have the following hardware:
 
 ---
 
-## **1️⃣ Installing PiSignage OS on Raspberry Pi**
+## ** Installing PiSignage OS on Raspberry Pi**
 
 ### **Step 1: Download PiSignage OS**
 Download the latest version of PiSignage OS from the official [GitHub repository](https://github.com/colloqi/piSignage).
@@ -34,23 +34,25 @@ After the first boot, update the system packages:
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
+### **Step 5: Dedicated Sudo User for Services**
+A dedicated hidden user (`pi-admin`) is created to securely run all monitoring and automation services. For detailed setup instructions, see [docs/security/hidden_sudo_user.md](docs/security/hidden_sudo_user.md).
+
 
 ---
 
-## **2️⃣ Network & Hostname Setup**
+## ** Network & Hostname Setup**
 All devices communicate using **hostnames**, with no manual IP assignments. Ensure your network's DNS resolves hostnames correctly for seamless communication between devices.
 
 ### **Step 1: Hostname Assignment via PiSignage Portal**
 Hostnames for each Raspberry Pi are automatically set through the **PiSignage Portal** when the device is registered. Ensure that all devices are properly added and assigned hostnames in the PiSignage management interface.
-Hostnames for each Raspberry Pi are automatically set through the **PiSignage Portal** when the device is registered. Ensure that all devices are properly added and assigned hostnames in the PiSignage management interface.
 
 
 ---
 
-## **3️⃣ Installing & Configuring Monitoring & Automation**
+## ** Installing & Configuring Monitoring & Automation**
 
 ### **Step 1: Install and Configure Node Exporter**
-Follow [docs/node_exporter.md](docs/node_exporter.md) to install and configure Node Exporter on each Raspberry Pi.
+Follow [docs/node_exporter_setup.md](https://github.com/gorman-ap/rpi-fleet-management/blob/main/docs/monitoring/node_exporter_setup.md) to install and configure Node Exporter on each Raspberry Pi.
 
 ### **Step 2: Verify Node Exporter is Running on Each Pi**
 ```bash
@@ -59,26 +61,17 @@ curl http://<pi-hostname>:9100/metrics
 - You should see system metrics output.
 
 ### **Step 1: Set Up Ansible for Automated Updates**
-Follow [ansible_setup.md](ansible_setup.md) to configure Ansible for managing updates across Raspberry Pi devices.
-
+Follow [ansible_setup.md](https://github.com/gorman-ap/rpi-fleet-management/blob/main/docs/monitoring/ansible_setup.md) to configure Ansible for managing updates across Raspberry Pi devices.
 
 
 
 ---
 
-## **4️⃣ Security & Hardening**
-To protect the Raspberry Pi devices and the control machine, implement firewall rules and intrusion prevention measures.
-
-### **Dedicated Sudo User for Services**
-A dedicated hidden user (`pi-admin`) is created to securely run all monitoring and automation services. For detailed setup instructions, see [docs/security/hidden_sudo_user.md](docs/security/hidden_sudo_user.md).
-
-### **Firewall & Intrusion Prevention**
-- **UFW (Uncomplicated Firewall)** is used to restrict access to essential services.
-- **Fail2Ban** helps prevent brute-force attacks on SSH and other critical services.
+## ** Security & Hardening**
 
 For detailed security configuration, refer to the [security folder](https://github.com/gorman-ap/rpi-fleet-management/tree/main/docs/security).
 
 
 ---
 
-This guide ensures that your **Raspberry Pi fleet is properly configured, updated, monitored, and secured.** 🚀
+This guide ensures that your **Raspberry Pi is properly configured, updated, monitored, and secured.** 
