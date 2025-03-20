@@ -88,7 +88,7 @@ If UFW (Uncomplicated Firewall) is running, ensure port `9100` is allowed on eac
 
 ---
 
-## ✅ Node Exporter is Now Installed and Running!
+## Node Exporter is Now Installed and Running!
 At this point, **Node Exporter is actively collecting system metrics** and should be accessible via Prometheus.
 
 To verify, navigate to:
