@@ -55,7 +55,7 @@ To improve security and prevent running services as root, we create a dedicated 
 1. Download the pre-configured service file:
    ```bash
    sudo wget -O /etc/systemd/system/node_exporter.service \
-   https://raw.githubusercontent.com/yourrepo/raspberry-pi-monitoring/main/configs/node_exporter.service
+   [https://github.com/gorman-ap/rpi-fleet-management/blob/main/docs/config/node_exporter.service]
    ```
 
 2. Set ownership of Node Exporter:
