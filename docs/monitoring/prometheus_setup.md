@@ -45,7 +45,7 @@ Instead of manually creating the configuration file, download the pre-configured
 1. Download the config file to `/etc/prometheus/`:
    ```bash
    sudo wget -O /etc/prometheus/prometheus.yml \
-   https://raw.githubusercontent.com/yourrepo/raspberry-pi-monitoring/main/configs/prometheus.yml
+   https://raw.github.com/gorman-ap/rpi-fleet-management/blob/main/docs/config/prometheus.yml
    ```
 
 This configuration ensures Prometheus scrapes **Node Exporter metrics** from all Raspberry Pi devices.
@@ -56,8 +56,12 @@ This configuration ensures Prometheus scrapes **Node Exporter metrics** from all
 1. Download the pre-configured service file:
    ```bash
    sudo wget -O /etc/systemd/system/prometheus.service \
-   https://raw.githubusercontent.com/yourrepo/raspberry-pi-monitoring/main/configs/prometheus.service
+   https://raw.github.com/gorman-ap/rpi-fleet-management/tree/main/docs/config/prometheus.service
    ```
+2. Move the service file to the correct location:
+   ```bash
+   sudo mv ~/prometheus.service /etc/systemd/system/
+   ```   
 2. Reload systemd and enable the service:
    ```bash
    sudo systemctl daemon-reload
