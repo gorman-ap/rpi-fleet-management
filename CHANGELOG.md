@@ -1,6 +1,6 @@
-## **📝 Changelog – March 20, 2025**
+## ** Changelog – March 20, 2025**
 
-### **🔧 Infrastructure & Configuration Updates**
+### ** Infrastructure & Configuration Updates**
 - **Ansible Inventory Moved**:  
   - Relocated inventory file from `/etc/ansible/hosts` → `~/ansible/inventory/hosts`  
   - Updated `ansible.cfg` to reflect new inventory path  
@@ -18,7 +18,7 @@
     ```
   - Added section to **Server Setup Guide** explaining why these permissions were necessary  
 
-### **🔒 Security & Fail2Ban Fixes**
+### ** Security & Fail2Ban Fixes**
 - **Fail2Ban Lockout Issue**:  
   - Suspected **self-lockout** while testing Ansible on `BSM---Lunchroom`  
   - Manually **unbanned** IP using:  
@@ -27,7 +27,7 @@
     ```
   - Letting ban run its course to test resolution before adjusting settings  
 
-### **📄 Documentation Updates**
+### ** Documentation Updates**
 - **Updated Server Setup Guide**
   - Moved **Dedicated Sudo User Setup** earlier in the guide  
   - Added **Sudoers Config Section** for Ansible automation  
