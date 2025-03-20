@@ -57,8 +57,11 @@ To improve security and prevent running services as root, we create a dedicated 
    sudo wget -O /etc/systemd/system/node_exporter.service \
    https://github.com/gorman-ap/rpi-fleet-management/blob/main/docs/config/node_exporter.service
    ```
-
-2. Set ownership of Node Exporter:
+2. Move the service file to the correct location:
+   ```bash
+   sudo mv ~/node_exporter.service /etc/systemd/system/
+   ```
+3. Set ownership of Node Exporter:
    ```bash
    sudo chown pi-admin:pi-admin /usr/local/bin/node_exporter
    ```
