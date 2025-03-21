@@ -37,7 +37,8 @@
 1. Download the pre-configured service file:
    ```bash
    sudo wget -O /etc/systemd/system/node_exporter.service \
-   https://raw.github.com/gorman-ap/rpi-fleet-management/blob/main/docs/config/node_exporter.service
+   https://raw.githubusercontent.com/gorman-ap/rpi-fleet-management/main/docs/config/node_exporter.service
+
    ```
 2. Set ownership of Node Exporter:
    ```bash
