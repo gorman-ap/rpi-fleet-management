@@ -4,7 +4,7 @@
 A hidden user has been created to manage system services securely without exposing administrative access to default accounts.
 
 ## User Details
-- **Username:** (Hidden for security reasons)
+- **Username:** `pi-admin`
 - **Permissions:** Full `sudo` access
 - **Purpose:** Runs all monitoring, logging, and automation services
 - **Visibility:** The user does not appear in standard system login lists
