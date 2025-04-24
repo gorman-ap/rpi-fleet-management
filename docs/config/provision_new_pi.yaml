@@ -1,0 +1,80 @@
+- name: Provision New Raspberry Pi
+  hosts: raspberry_pis  # Replace with the correct group in your inventory
+  become: yes
+  vars:
+    new_user: pi-admin
+
+  tasks:
+    - name: Ensure the sudo user exists
+      user:
+        name: "{{ new_user }}"
+        groups: sudo
+        append: yes
+        shell: /bin/bash
+        state: present
+        create_home: yes
+
+    - name: Update apt cache and upgrade packages
+      apt:
+        update_cache: yes
+        upgrade: yes
+
+    - name: Install required packages
+      apt:
+        name:
+          - ufw
+          - fail2ban
+        state: present
+
+    - name: Set node_exporter binary path based on architecture
+      set_fact:
+        node_exporter_binary: "{{ 'files/node_exporter_arm64' if ansible_architecture == 'aarch64' else 'files/node_exporter_armv7' }}"
+
+    - name: Deploy node_exporter binary
+      copy:
+        src: "{{ node_exporter_binary }}"  # Change to actual path on control node
+        dest: /usr/local/bin/node_exporter
+        mode: '0755'
+        owner: "{{ new_user }}"
+        group: "{{ new_user }}"
+
+    - name: Create systemd service for node_exporter
+      copy:
+        dest: /etc/systemd/system/node_exporter.service
+        content: |
+          [Unit]
+          Description=Prometheus Node Exporter
+          After=network.target
+
+          [Service]
+          User={{ new_user }}
+          Group={{ new_user }}
+          ExecStart=/usr/local/bin/node_exporter
+          Restart=always
+
+          [Install]
+          WantedBy=multi-user.target
+
+    - name: Reload systemd
+      command: systemctl daemon-reexec
+
+    - name: Enable and start services
+      systemd:
+        name: "{{ item }}"
+        enabled: yes
+        state: started
+      loop:
+        - node_exporter
+        - ufw
+        - fail2ban
+
+    - name: Configure UFW rules
+      ufw:
+        rule: allow
+        port: "{{ item }}"
+        proto: tcp
+      loop:
+        - 22
+        - 80
+        - 443
+        - 9100
