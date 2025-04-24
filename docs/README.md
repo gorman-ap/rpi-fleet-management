@@ -6,7 +6,7 @@ This folder contains all setup and configuration guides for the **Raspberry Pi F
 ##  Table of Contents
 - **[Client Setup (Raspberry Pi)](rpi_setup.md)** → Install and configure the Raspberry Pi clients.
 - **[Server Setup (PiBrain)](server_setup.md)** → Set up the monitoring & automation server.
-- **[Monitoring & Automation](monitoring.md)** → Overview of Prometheus, Grafana, and Ansible.
+- **[Monitoring & Automation](https://github.com/gorman-ap/rpi-fleet-management/tree/main/docs/monitoring)** → Overview of Prometheus, Grafana, and Ansible.
 - **[Security & Hardening](security/README.md)** → Firewall, Fail2Ban, and system security practices.
 
 ##  How to Use These Docs
