@@ -1,0 +1,24 @@
+[group1]
+IT-Tester ansible_host=IT-Tester ansible_user=pi-admin
+BSM---Lounge ansible_host=BSM---Lounge ansible_user=pi-admin
+BSM---Vestibule ansible_host=BSM---Vestibule ansible_user=pi-admin
+
+[group2]
+BSM---Lunchroom ansible_host=BSM---Lunchroom ansible_user=pi-admin
+BSM---Employee-Entrance ansible_host=BSM---Employee-Entrance ansible_user=pi-admin
+Bristol---Lunchroom ansible_host=Bristol---Lunchroom ansible_user=pi-admin
+
+[group3]
+BSM---Bosch ansible_host=BSM---Bosch ansible_user=pi-admin
+BSM---Panelshop ansible_host=BSM---Panelshop ansible_user=pi-admin
+BSM---Repair ansible_host=BSM---Repair ansible_user=pi-admin
+BSM---QA ansible_host=BSM---QA ansible_user=pi-admin
+BSM---Fabrication ansible_host=BSM---Fabrication ansible_user=pi-admin
+
+[server]
+pibrain ansible_host=pibrain ansible_user=pi-admin
+
+[raspberry_pis:children]
+group1
+group2
+group3
