@@ -22,11 +22,11 @@
 #
 # m h  dom mon dow   command
 
-# Group 1 - Mondays at 2:00 AM
-0 2 * * 1 ansible-playbook -i ~/ansible/inventory/hosts update_pis.yaml --limit group1
+# Group 1 – Early month
+0 2 8 * * ansible-playbook -i ~/ansible/inventory/hosts update_pis.yaml --limit group1
 
-# Group 2 - Tuesdays at 2:00 AM
-0 2 * * 2 ansible-playbook -i ~/ansible/inventory/hosts update_pis.yaml --limit group2
+# Group 2 – Mid-month
+0 2 15 * * ansible-playbook -i ~/ansible/inventory/hosts update_pis.yaml --limit group2
 
-# Group 3 - Wednesdays at 2:00 AM
-0 2 * * 3 ansible-playbook -i ~/ansible/inventory/hosts update_pis.yaml --limit group3
+# Group 3 – Late month
+0 2 22 * * ansible-playbook -i ~/ansible/inventory/hosts update_pis.yaml --limit group3
