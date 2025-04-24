@@ -31,7 +31,7 @@ In addition to monitoring and automation, this project also includes an experime
 This portion of the project is still under development, and updates will be added to the repository once a stable image is available. [Current build](https://github.com/gorman-ap/rpi-fleet-management/blob/main/Fleet%20Base%20Image/0.5.0-pre.md)
 
 ## Project Status
-- [ ] Implement automated updates using Ansible
+- [x] Implement automated updates using Ansible
 - [x] Configure Prometheus scraping for all devices
 - [x] Design custom Grafana dashboards
 - [ ] Set up alerting system
