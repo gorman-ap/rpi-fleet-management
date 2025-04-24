@@ -15,6 +15,7 @@
 - Playbooks are now split into purpose-driven files (update.yaml, provision-new-pi.yaml)
 - Organized inventory groups by device deployment phase (group1, group2, group3) under raspberry_pis
 - Future devices now follow hostname-based provisioning logic for smooth replacement and reimaging
+- Updated documentation and configs for Ansible
 
 ---
 
