@@ -1,3 +1,35 @@
+# Changelog - April 29, 2025
+
+## Ansible Provisioning System Finalization
+
+- Provisioning Playbook Improvements:
+  - Full automation of new device setup finalized
+  - Playbook now automatically creates the pi-admin user with a pre-set password
+  - Authorized SSH keys are copied correctly from initial user (pi) to pi-admin
+  - Node Exporter is installed based on Pi architecture (ARMv7 vs ARM64)
+  - System services (node_exporter, ufw, fail2ban) are enabled and configured
+
+- Inventory & Host Management:
+  - Clarified workflow for initial provisioning:
+    - Devices boot with default PiSignageOS hostname
+    - ssh-copy-id is performed manually once for the pi user
+    - Initial provisioning playbook (provision_new_pi.yaml) is run with temporary -u pi
+    - Post-provisioning, all future playbooks connect via pi-admin
+
+- Maintenance Playbook Updates:
+  - Update and reboot playbook staggered across groups using cron jobs
+  - Groups scheduled to update at 2:00 AM on the 8th, 15th, and 22nd of each month
+
+- Documentation Updates:
+  - Major refresh of README.md to reflect real-world production workflow
+  - Added explanation for PiSignage OS constraints and hostname behavior
+  - Provided clear cron scheduling examples
+  - Clarified why the system is intentionally lightweight and minimal
+
+
+---
+---
+
 # Changelog – April 24, 2025
 
 ## Custom PiSignage OS Update
