@@ -35,7 +35,7 @@ This portion of the project is still under development, and updates will be adde
 - [x] Configure Prometheus scraping for all devices
 - [x] Design custom Grafana dashboards
 - [ ] Set up alerting system
-- [ ] Test and refine monitoring & automation
+- [x] Test and refine monitoring & automation
 
 ## Getting Started
 ### Clone the Repository
