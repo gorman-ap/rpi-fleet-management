@@ -17,7 +17,7 @@
     - name: Ensure the sudo user exists
         user:
           name: "{{ new_user }}"
-          password: "{{ 'RPIadmin3557' | password_hash('sha512') }}"
+          password: "{{ 'YourPasswordHere' | password_hash('sha512') }}"
 
     - name: Ensure .ssh directory exists for pi-admin
       file:
